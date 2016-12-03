@@ -35,16 +35,17 @@ public class Session extends HttpServlet {
 		
 		if(cart == null){
 			
-		//Declaring new shopping Cart
+		//Declaring new shopping Cart 
 			cart = new Cart();
 		}
 		
 		cart.setTotalItem(7);
 		
-		//Setting atribute for the session
+		//Setting cart for the session
 		session.setAttribute("cart", cart);
 		
 		//Setting the cart into the session and then forwarding the session to the showcart page
+		//When using the forward command (on the server side) the page will be available on the server even after clearing cookies
 		getServletContext().getRequestDispatcher("/showcart.jsp").forward(request, response); 
 	}
 
